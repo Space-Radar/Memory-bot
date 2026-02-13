@@ -64,7 +64,6 @@ def process_question(content, messages): ## processes user question
 
     return message
    
-
 # Memory management
 
 def remember_response(question, response, timestamp, elapsed): ## stores the users input, bots response, timestamp and elapsed time
@@ -200,6 +199,7 @@ def end_conversation(): # if the user wants to end the conversation end conversa
         end_conversation()
 
 # While the user wants to keep talking keep allowing them to prompt
+
 while KeepTalking is True :
    os.system("cls")
    converse()
