@@ -32,7 +32,7 @@ def is_similar(a, b, threshold=0.6): ## quantify how similar sentences are so th
 def ask_question(): ## allows the user to input a question
     global Debug
     content = input("Ask Away: | ")
-    if "MEMORY_WIPE_1982" in content:
+    if "MEMORY_WIPE_1987" in content:
         os.system("cls") # clear windows terminal
         memory_wipe()
         print("Memory wiped ... ")
