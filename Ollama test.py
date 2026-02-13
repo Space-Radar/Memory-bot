@@ -45,10 +45,7 @@ def process_question(content, messages): ## processes user question
     global elapsed
     global timestamp
     start = time.time()
-    response = chat(
-        model="TestModel_1",
-        messages=messages + [{"role": "user", "content": content}]
-    )
+    response = chat(model="TestModel_1",messages=messages + [{"role": "user", "content": content}])
 
     end = time.time()
     message = response["message"]
@@ -76,7 +73,6 @@ def remember_response(question, response, timestamp, elapsed): ## stores the use
         "assistant": response["content"],
         "timestamp": str(timestamp),
         "elapsed": float(elapsed),
-
     }
 
     with open("Memories.jsonl", "a", encoding="utf-8") as f:
@@ -92,9 +88,9 @@ def recall_memories():
                 continue
             try:
                 memory = json.loads(line)
-
                 user_content = memory.get("user", "")
                 assistant_content = memory.get("assistant", "")
+                
                 # assistant_content += f" (response generated at {ts})"
 
                 if Debug == True:
@@ -121,6 +117,7 @@ def memory_wipe():
     f.close()
 
 # Corrections and positive reinforcement
+
 def store_correction(question, wrong_answer, correct_answer):
     correction = {
         "trigger": question.lower(),
@@ -206,3 +203,4 @@ def end_conversation(): # if the user wants to end the conversation end conversa
 while KeepTalking is True :
    os.system("cls")
    converse()
+
